@@ -9,6 +9,9 @@
 </head>
 <body>
     <div class="container">
+
+        <?php 
+include "header.php" ;?>
     <form id="createClassForm" action="" method="post">
     <h1>Create a class for your students</h1>
     <h3 id="subheader">Enter the details about your class, courses and grades</h3>
