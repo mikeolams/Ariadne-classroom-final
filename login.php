@@ -1,29 +1,65 @@
+<?php
+  require 'includes/config.php';
+
+  if(isset($_POST['login'])) {
+    $errMsg = '';
+
+    // Get data from FORM
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if($username == '')
+      $errMsg = 'Enter username';
+    if($password == '')
+      $errMsg = 'Enter password';
+
+    if($errMsg == '') {
+      try {
+        $stmt = $connect->prepare('SELECT id, fullname, username, password FROM pdo WHERE username = :username');
+        $stmt->execute(array(
+          ':username' => $username
+          ));
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($data == false){
+          $errMsg = "User $username not found.";
+        }
+        else {
+          if($password == $data['password']) {
+            $_SESSION['name'] = $data['fullname'];
+            $_SESSION['username'] = $data['username'];
+            $_SESSION['password'] = $data['password'];
+            // $_SESSION['secretpin'] = $data['secretpin'];
+
+            header('Location: accessclass.php');
+            exit;
+          }
+          else
+            $errMsg = 'Password not match.';
+        }
+      }
+      catch(PDOException $e) {
+        $errMsg = $e->getMessage();
+      }
+    }
+  }
+?>
+
+
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-	<title>Login form</title>
-	<link rel="stylesheet" type="text/css" href="css/signup.css">
+  <title>Sign Up form</title>
+  <link rel="stylesheet" type="text/css" href="css/signup.css">
 </head>
 <header>
 <div class="header">
-    <div class="logo">
-    <a href="index.html"><img
-        src="https://res.cloudinary.com/enema/image/upload/v1569433441/Ariadne_Class_pnlixb.png"
-        style="width: 110px;" alt="logo">
-    </a>
-    </div>
-    <div class="topnav" id="myTopnav">
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img src="https://res.cloudinary.com/siyfa/image/upload/v1568922461/ovqrbsa6t7nhghflejve.png" style="width: 30px;">
-        </a>
-        <a href="#">Login</a>
-        <a href="#">Contact Us</a>
-        <a href="class.html">Create Class</a>
-        <a href="class.html">Access Class</a>
-        <a href="class.html">Sign Up</a>
-        <a href="#">Home</a>
-  </div>
-  </div>  
+
+      <?php
+  include "header.php";?>
+ 
+    </div>  
       <script>
           function myFunction() {
             var x = document.getElementById("myTopnav");
@@ -36,40 +72,25 @@
         </script>
 </header>
 <body>
-<form action="action_page.php" method="post">
+  <div>
+    <h2>Welcome to Ariadne Class, <br>enrol today and enjoy the definiation<br> of online education.</h2>
+  </div>
+
+<form action="" method="post">
   <div class="imgcontainer">
     <img src="https://res.cloudinary.com/enema/image/upload/v1569433441/Ariadne_Class_pnlixb.png" alt="Avatar" class="avatar" height="100" width="50">
   </div>
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-    <div class="coursegroup">
-    <select name="subjects" class="subjects" required>
-            <option value="">--Please choose a class--</option>
-            <option value="Web Development">Web Development</option>
-            <option value="Data Science">Data Science</option>
-            <option value="AI">Artificial Intelligence</option>
-            <option value="Machine Learning">Machine Learning</option>
-            <option value="Oracle DataBase">Oracle DataBase</option>
-            <option value="Cisco Networking">Cisco Networking</option>
-            <option value="RedHat Linux">RedHat Linux</option>
-            <option value="Digital Marketing">Digital Marketing</option>
-            <option value="Microsoft">Microsoft System Administration</option>
-          </select>
-
-    <button type="submit">Login</button></a>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+<form action="" method="post">
+          <input type="text" name="username" value="<?php if(isset($_POST['username'])) echo $_POST['username'] ?>" autocomplete="off" class="box"/><br /><br />
+          <input type="password" name="password" value="<?php if(isset($_POST['password'])) echo $_POST['password'] ?>" autocomplete="off" class="box" /><br/><br />
+          <input type="submit" name='login' value="Login" class='submit'/><br />
+        </form>
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+
   </div></div></form>
 <section>
   <footer>
