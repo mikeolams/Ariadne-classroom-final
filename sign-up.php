@@ -1,3 +1,50 @@
+<?php
+  require 'includes/config.php';
+
+  if(isset($_POST['register'])) {
+    $errMsg = '';
+
+    // Get data from FROM
+    $fullname = $_POST['fullname'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];   
+    $password = $_POST['password'];
+    // $secretpin = $_POST['secretpin'];
+
+    if($fullname == '')
+      $errMsg = 'Enter your fullname';
+    if($username == '')
+      $errMsg = 'Enter username';
+    if($password == '')
+      $errMsg = 'Enter password'; 
+    if($email == '')
+      $errMsg = 'Enter email';
+    // if($secretpin == '')
+    //   $errMsg = 'Enter a sercret pin number';
+
+    if($errMsg == ''){
+      try {
+        $stmt = $connect->prepare('INSERT INTO pdo (fullname, username, email, password) VALUES (:fullname, :username, :email, :password)');
+        $stmt->execute(array(
+          ':fullname' => $fullname,
+          ':username' => $username,
+          ':email' => $email,
+          ':password' => $password
+          // ':secretpin' => $secretpin
+          ));
+        header('Location: login.php');
+        exit;
+      }
+      catch(PDOException $e) {
+        echo $e->getMessage();
+      }
+    }
+  }
+
+  if(isset($_GET['action']) && $_GET['action'] == 'joined') {
+    $errMsg = 'Registration successfull. Now you can <a href="login.php">login</a>';
+  }
+?>
 
 <!DOCTYPE html>
 <html>
