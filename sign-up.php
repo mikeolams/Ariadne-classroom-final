@@ -70,7 +70,7 @@ include "header.php" ;?>
         </script>
 </header>
 <body>
-<form action="action_page.php" method="post">
+<form action="" method="post">
   <div class="imgcontainer">
     <img src="https://res.cloudinary.com/enema/image/upload/v1569433441/Ariadne_Class_pnlixb.png" alt="Avatar" class="avatar" height="100" width="50">
   </div>

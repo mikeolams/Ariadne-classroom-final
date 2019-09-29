@@ -13,6 +13,7 @@
   <div class="header">
     <?php 
 include "header.php" ;?>
+<a href="/logout.php">Logout</a>
   </div>  
       <script>
           function myFunction() {

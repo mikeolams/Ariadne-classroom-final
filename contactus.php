@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 	<title>Sign Up form</title>
-	<link rel="stylesheet" type="text/css" href="contactus.css">
+	<link rel="stylesheet" type="text/css" href="css/contactus.css">
 </head>
 <header>
 <div class="header">
