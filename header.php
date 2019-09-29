@@ -12,11 +12,10 @@
         <a href="sign-up.php">Create An Account</a>
         <a href="login.php">Login</a>
         <a href="#">Contact Us</a>
-        <a href="#">FAQ</a>
-        <a href="#">Courses</a>
-        <a href="about-us.html">How it works</a>
-        <a href="class.html">Create Class</a>
-        <a href="#">Home</a>
+        <a href="class.php">Create Class</a>
+        <a href="accessclass.php">Create Class</a>
+
+        <a href="index.php">Home</a>
   </div>
   </div>  
       <script>
