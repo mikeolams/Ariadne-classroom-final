@@ -32,7 +32,7 @@
           ':password' => $password
           // ':secretpin' => $secretpin
           ));
-        header('Location: login.php');
+        header('location:login.php');
         exit;
       }
       catch(PDOException $e) {
@@ -50,8 +50,8 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-	<title>Sign Up form</title>
-	<link rel="stylesheet" type="text/css" href="css/signup.css">
+  <title>Sign Up form</title>
+  <link rel="stylesheet" type="text/css" href="css/signup.css">
 </head>
 <header>
 <div class="header">
@@ -76,18 +76,18 @@ include "header.php" ;?>
   </div>
 
   <div class="container">
-    <label for="FullName"><b>Full name</b></label>
-    <input type="text" placeholder="Enter full name" name="FullName" required>
-
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-    <label for="psw"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat password">
+    <label for="fullname"><b>Full name</b></label>
+<input type="text" name="fullname" placeholder="Fullname" value="<?php if(isset($_POST['fullname'])) echo $_POST['fullname'] ?>" autocomplete="off" class="box"/><br /><br />
+    <label for="username"><b>Username</b></label>
+<input type="text" name="username" placeholder="Username" value="<?php if(isset($_POST['username'])) echo $_POST['username'] ?>" autocomplete="off" class="box"/><br /><br />
+<label for="email"><b>Email</b></label>
+<input type="text" name="email" placeholder="Email Adress" value="<?php if(isset($_POST['email'])) echo $_POST['email'] ?>" autocomplete="off" class="box"/><br /><br />
+    <label for="password"><b>Password</b></label>
+<input type="password" name="password" placeholder="Password" value="<?php if(isset($_POST['password'])) echo $_POST['password'] ?>" class="box" /><br/><br />
+<!--     <label for="psw"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat password"> -->
     <div class="coursegroup">
-    <select name="subjects" class="subjects" required>
+<!--     <select name="subjects" class="subjects" required>
             <option value="">--Please choose a class--</option>
             <option value="Web Development">Web Development</option>
             <option value="Data Science">Data Science</option>
@@ -98,9 +98,9 @@ include "header.php" ;?>
             <option value="RedHat Linux">RedHat Linux</option>
             <option value="Digital Marketing">Digital Marketing</option>
             <option value="Microsoft">Microsoft System Administration</option>
-          </select>
+          </select> -->
 
-    <button type="submit">Sign Up</button>
+    <button type="submit " name='register' value="Register" class='submit'>Sign Up</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>

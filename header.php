@@ -1,7 +1,7 @@
 <header>
 <div class="header">
     <div class="logo">
-    <a href="index.html"><img
+    <a href="index.php"><img
         src="https://res.cloudinary.com/enema/image/upload/v1569433441/Ariadne_Class_pnlixb.png"
         style="width: 110px;" alt="logo">
     </a>
@@ -11,10 +11,8 @@
         </a>
         <a href="sign-up.php">Create An Account</a>
         <a href="login.php">Login</a>
-        <a href="#">Contact Us</a>
-        <a href="class.php">Create Class</a>
-        <a href="accessclass.php">Create Class</a>
-
+        <a href="createclass.php">Create Class</a>
+        <a href="contactus.php">Contact Us</a>
         <a href="index.php">Home</a>
   </div>
   </div>  

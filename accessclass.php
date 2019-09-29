@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +15,9 @@
   <div class="header">
     <?php 
 include "header.php" ;?>
-<a href="/logout.php">Logout</a>
+    <div class="topnav" id="myTopnav">
+        <a href="logout.php">Log Out</a>
+  </div>
   </div>  
       <script>
           function myFunction() {
@@ -45,9 +49,9 @@ include "header.php" ;?>
     <br>
 </div>
 <div>
-   			<footer>
-   				<p>Copyright © 2019 All rights reserved | Team Ariadne</p>
-   			</footer>
-   	</div>
+        <footer>
+          <p>Copyright © 2019 All rights reserved | Team Ariadne</p>
+        </footer>
+    </div>
 </body>
 </html>
