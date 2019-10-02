@@ -63,50 +63,94 @@ body {
 
 body {
  background-image: url("https://res.cloudinary.com/enema/image/upload/v1569485002/ClassBGLogin_l9dhub.png");}
+.formContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 420px;
+    margin-top: 60px;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.9);
+    
+}
+.form h1{
+    text-align: center;
+    padding: 0 0 10px 0;
+    padding: 0 0 15px;
+    color: #194A21;
+}
+label{
+    font-weight: 600;
+    font-size: 16px;
+    color: #194A21;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 80%;
+    padding: 8px;
+    outline: none;
+    border-radius: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    background: none;
+    outline: none;
+    border: none;
+    border: 1px solid #194A21;
+    color: #194A21;
+    margin-bottom: 10px;
+}
+
+input[type="submit"]{
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    margin: 25px 0 40px 0;
+    color: #fff;
+    background-color: #003C00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+}
+textarea{
+    border-color: #194A21;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 500px;
+}
+footer{
+    text-align: center;
+    padding: 20px;
+    color: black;
+    margin-top: 150px;
+}
+@media screen and (max-width: 768px) {
+    .form{
+        border:none;
+        box-shadow: none;
+        width: 100%;
+    }
+}
  @media only screen and (min-width: 1200px) {
     /* styles for wide screens */
 }
 @media only screen and (max-width: 320px) {
     /* styles for narrow screens */
 }
-img.smallscreen { display: none; }
-        @media only screen and (max-width: 320px) {
-            img { 
-                display: none; 
-            }
-            img.smallscreen { 
-                display: inline; 
-            }
-        }
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;}
-}
-h3{
-	position: absolute;
-	top: 200px;
-	margin: 0px;
-	padding: 0px;
-	color: #100499;
-	font-family: Mosk;
-	font-size: 20px;
-	line-height: 88.1%;
-  text-align: center;
-  word-spacing: 2px;
-  align-content: center;
-	/* or 63px */
 
-text-transform: capitalize
-}
+@media only screen and (min-width: 768px) {
+  
 }
