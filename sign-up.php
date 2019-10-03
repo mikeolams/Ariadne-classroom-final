@@ -1,8 +1,8 @@
 <?php
     session_start();
 
-    $con=mysqli_connect('localhost','root','1111111111') or die("Cannot connect to localhost");
-    mysqli_select_db($con,'Ariadneclass') or die("Cannot Select Database");
+    $con=mysqli_connect('localhost','id11033850_root','1111111111') or die("Cannot connect to localhost");
+    mysqli_select_db($con,'id11033850_localhost') or die("Cannot Select Database");
 
     //require 'includes/config.php';
 
