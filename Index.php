@@ -35,8 +35,8 @@ include "header.php" ;?>
       </p>
     <div>
       <p>
-        <h2><a href="sign up.html">Teacher</a>
-        <a href="sign up.html">Student</a></h2>
+        <h2><a href="sign-up.php">Teacher</a>
+        <a href="sign-up.php">Student</a></h2>
       </p>
     </div>
     <div>

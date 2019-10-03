@@ -65,6 +65,17 @@ form {
   background-color: 
 }
 
+.signup_errors{
+    margin-top: 10px;
+    width: 100%;
+    background: #FDD7E4;
+    border: 2px solid red;
+    border-radius: 5px;
+    color: #FF0000;
+    text-align: left;
+}
+
+
 /* Full-width inputs */
 input[type=text], input[type=password] {
   width: 100%;
