@@ -7,7 +7,7 @@
     </a>
     </div>
     <div class="topnav" id="myTopnav">
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img src="https://res.cloudinary.com/siyfa/image/upload/v1568922461/ovqrbsa6t7nhghflejve.png" style="width: 30px;">
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img src="https://res.cloudinary.com/oyinka/image/upload/v1570139235/ham_z57pdv.png" style="width: 80px; color: black;">
         </a>
         <a href="sign-up.php">Create An Account</a>
         <a href="login.php">Login</a>

@@ -3,9 +3,9 @@ session_start();
 
 // Define database
 define('dbhost', 'localhost');
-define('dbuser', 'root');
+define('dbuser', 'id11033850_root');
 define('dbpass', '1111111111');
-define('dbname', 'Ariadneclass');
+define('dbname', 'id11033850_localhost');
 
 // Connecting database
 try {
