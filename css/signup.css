@@ -75,12 +75,21 @@ form {
     text-align: left;
 }
 
+.login_successful{
+    margin-top: 10px;
+    width: 100%;
+    background: #3C6B52;
+    border: 2px solid green;
+    border-radius: 5px;
+    color: #FFFFFF;
+    text-align: left;
+}
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 0px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
