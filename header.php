@@ -12,6 +12,7 @@
         <a href="sign-up.php">Create An Account</a>
         <a href="login.php">Login</a>
         <a href="createclass.php">Create Class</a>
+        <a href="chooseCourse.html">Choose Your Preferred Course(s)</a>
         <a href="contactus.php">Contact Us</a>
         <a href="index.php">Home</a>
   </div>
