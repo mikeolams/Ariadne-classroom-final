@@ -87,9 +87,9 @@ input {
 .coursegroup {
     margin-bottom: 25px;
 }
-input:invalid, select:invalid {
+/* input:invalid, select:invalid {
     border: 2px dashed red;
-}
+} */
  
 input:valid {
     border: 2px solid black;
@@ -136,13 +136,6 @@ tr {
 form li {
     list-style: none
 }
-
-
-@media screen and (max-width: 780px){
-    .container{
-        float: left;
-        padding: 0;
-        width:94%;
-        margin: 5%;
-    }
+#error {
+    color: red;
 }
