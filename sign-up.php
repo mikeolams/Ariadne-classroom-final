@@ -220,7 +220,8 @@ include "header.php" ;?>
   </div></div></form>
 <section>
   <footer>
-    <img src="https://res.cloudinary.com/enema/image/upload/v1569508194/screencapture-file-C-Users-pc-Desktop-TEAM-ARIADNE-HOMEPAGE-homepage-html-2019-09-25-21_51_33_vqmtxf.png" width="100%">
+    <!--<img src="https://res.cloudinary.com/enema/image/upload/v1569508194/screencapture-file-C-Users-pc-Desktop-TEAM-ARIADNE-HOMEPAGE-homepage-html-2019-09-25-21_51_33_vqmtxf.png" width="100%">-->
+	<p>Copyright &copy; 2019 All Rights Reserved - Team Ariadne</p>
   </footer>
 </section>
 </body>
