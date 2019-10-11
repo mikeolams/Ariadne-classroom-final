@@ -23,7 +23,7 @@ include "header.php" ;?>
             }
           }
         </script>
-   <body>
+        
     <div> 
       <p>
         <h3>Learn<br>Anywhere<br>Anyday</h3>
