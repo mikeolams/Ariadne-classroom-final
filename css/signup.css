@@ -241,3 +241,22 @@ color: #BF5300;
 position: absolute;
 top: 150px;
 }
+
+@media screen and (max-width: 800px) {
+  h2, .logo {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+    footer {
+	text-align: center;
+	font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .topnav {
+     display: none;
+   }
+}

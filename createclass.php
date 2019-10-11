@@ -11,7 +11,7 @@ function sanitizeString($var)
 }
 
 $query = "SELECT user_id, username, fullname FROM user";
-$result = $connect->query($query);
+$result = $query($query);
 $user = $result->fetch_assoc();
 
 if ($result->num_rows > 0) {
