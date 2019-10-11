@@ -1,3 +1,66 @@
+<?php
+require_once "includes/config.php";
+$error = "";
+
+function sanitizeString($var)
+{
+    $var = strip_tags($var);
+    $var = htmlentities($var);
+    $var = stripslashes($var);
+    return $var;
+}
+
+$query = "SELECT user_id, username, fullname FROM user";
+$result = $connect->query($query);
+$user = $result->fetch_assoc();
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    $username = $user['username'];
+   /* while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    }*/
+} else {
+    echo "0 results";
+    $username = "";
+}
+
+if (isset($_POST['classname'])) {
+    $name = sanitizeString($_POST['classname']);
+    $name_length = strlen($name);
+    $title = sanitizeString($_POST['classtitle']);
+    $title_length = strlen($title);
+    $subjects = sanitizeString($_POST['subjects']);
+    $level = sanitizeString($_POST['level']);
+    $exercise = sanitizeString($_POST['exercise']);
+    $quiz = sanitizeString($_POST['quiz']);
+
+    if ($name != "" && $title != "" && $subjects != "" && $level != "") {
+        if ($name_length < 4) {
+            $error = "Class name must be at least four characters";
+        } elseif ($name_length > 100) {
+            $error = "Class name can't be more than 100 characters";
+        } elseif ($title_length < 4) {
+            $error = "Class title must be at least four characters";
+        } elseif ($title_length > 100) {
+            $error = "Class title can't be more than 100 characters";
+        } else {
+            $sql = "INSERT INTO class (class_id, username, class_name, course_title, category, course_level, exercise, quiz)
+            VALUES (NULL, '$username', '$name', '$title', '$subjects', '$level', '$exercise', '$quiz')";
+
+            if ($connect->query($sql) === TRUE) {
+                echo "New record created successfully";
+            } else {
+                echo "Error: " . $sql . "<br>" . $connect->error;
+            }
+        }
+    } else {
+        $error = "Please ensure Class Name, Course Title, Subjects and Level fields are not empty";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,9 +93,10 @@
             </script>
         </header>
 
-        <form id="form" action="" method="post">
+        <form id="form" action="createclass.php" method="post">
             <h1>Create a class for your students</h1>
             <h3 id="subheader">Enter the details about your class, courses and grades</h3>
+            <p><?php echo $error; ?></p>
 
             <div>
                 <div id="error"></div>
@@ -44,8 +108,8 @@
 
                     <div id="error"></div>
                     <tr>
-                        <td><input type="text" id="className" placeholder="Enter Class Name" autocomplete="on"></td>
-                        <td><input type="text" id="classTitle" placeholder="Enter Class Title" autocomplete="on"></td>
+                        <td><input type="text" name="classname" id="className" placeholder="Enter Class Name" autocomplete="on"></td>
+                        <td><input type="text" name="classtitle" id="classTitle" placeholder="Enter Class Title" autocomplete="on"></td>
                     </tr>
 
                     <tr>
@@ -71,7 +135,7 @@
                         </td>
 
                         <td>
-                            <select name="subjects" class="courselevel" id="select1">
+                            <select name="level" class="courselevel" id="select1">
                                 <option value="">--Please choose an option--</option>
                                 <option value="beginner">Beginner</option>
                                 <option value="intermediate">Intermediate</option>
@@ -88,7 +152,7 @@
                     <div id="error"></div>
                     <tr>
                         <td>
-                            <select name="subjects" class="exercise" id="select2">
+                            <select name="exercise" class="exercise" id="select2">
                                 <option value="">--Select an option--</option>
                                 <option value="Web Development">Build a Calculator</option>
                                 <option value="Data Science">Build a Facebook Login page</option>
@@ -96,7 +160,7 @@
                             </select>
                         </td>
                         <td>
-                            <select name="subjects" class="quiz" id="select2">
+                            <select name="quiz" class="quiz" id="select2">
                                 <option value="">--Select an option--</option>
                                 <option value="">What do you intend achieving after this course?</option>
                                 <option value="">What Career path do you desire?</option>
