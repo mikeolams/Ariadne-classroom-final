@@ -2,8 +2,8 @@
     session_start();
 
 
-    $con=mysqli_connect('localhost','id1103850_root','1111111111') or die("Cannot connect to localhost");
-    mysqli_select_db($con,'id11033850_localhost') or die("Cannot Select Database");
+    $con=mysqli_connect('localhost','root','') or die("Cannot connect to localhost");
+    mysqli_select_db($con,'ariande') or die("Cannot Select Database");
     //require 'includes/config.php';
 
 
@@ -103,7 +103,7 @@
       
         else {
             $password = password_hash("$password",PASSWORD_DEFAULT);
-            $insert = mysqli_prepare($con,"INSERT INTO users (fullname, username, email, password) VALUES (?,?,?,?)");
+            $insert = mysqli_prepare($con,"INSERT INTO users (`fullname`, `username`, `email`, `password`) VALUES (?,?,?,?)");
             mysqli_stmt_bind_param($insert,'ssss',$fullname,$username,$email,$password);
             mysqli_stmt_execute($insert);
             mysqli_stmt_close($insert);
@@ -183,31 +183,12 @@ include "header.php" ;?>
           ?>
       </div>
   <div class="container">
-    <!-- <label for="fullname"><b>Full name</b></label> -->
 <input type="text" name="fullname" id="fullname" placeholder="Fullname" value="<?php msg_toggle('fullname') ?>" autocomplete="off" class="box"/><br /><br />
-    <!-- <label for="username"><b>Username</b></label> -->
 <input type="text" name="username" id="username" placeholder="Username" value="<?php msg_toggle('username')?>" autocomplete="off" class="box"/><br /><br />
-<!-- <label for="email"><b>Email</b></label> -->
 <input type="text" name="email" id="email" placeholder="Email Address" value="<?php msg_toggle('email') ?>" autocomplete="off" class="box"/><br /><br />
-    <!-- <label for="password"><b>Password</b></label> -->
 <input type="password" name="password" id="password" placeholder="Password" class="box" /><br/><br />
 <input type="password" name="password_confirm" id="password_confirm" placeholder="Confirm Password" class="box" /><br/><br />
-<!--     <label for="psw"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat password"> -->
     <div class="coursegroup">
-<!--     <select name="subjects" class="subjects" required>
-            <option value="">--Please choose a class--</option>
-            <option value="Web Development">Web Development</option>
-            <option value="Data Science">Data Science</option>
-            <option value="AI">Artificial Intelligence</option>
-            <option value="Machine Learning">Machine Learning</option>
-            <option value="Oracle DataBase">Oracle DataBase</option>
-            <option value="Cisco Networking">Cisco Networking</option>
-            <option value="RedHat Linux">RedHat Linux</option>
-            <option value="Digital Marketing">Digital Marketing</option>
-            <option value="Microsoft">Microsoft System Administration</option>
-          </select> -->
-
     <button type="submit " name='register' value="Register" class='submit'>Sign Up</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
